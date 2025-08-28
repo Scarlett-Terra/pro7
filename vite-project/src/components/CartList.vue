@@ -1,6 +1,16 @@
 <script setup>
-defineProps(['carts'])
+// defineProps(['carts'])
 const emit = defineEmits(['remove-to-cart'])
+
+import { computed, toRefs } from 'vue'
+const props = defineProps({ carts: Array })
+const { carts } = toRefs(props)
+
+const totalPrice = computed(() =>
+  carts.value.reduce((sum, item) => sum + item.price * item.quantity, 0)
+)
+
+
 </script>
 
 <template>
@@ -22,4 +32,11 @@ const emit = defineEmits(['remove-to-cart'])
       </div>
     </li>
   </ul>
+
+  <div>
+    <!-- ... 購物車 items ... -->
+    <div class="total">總價：{{ totalPrice }} 元</div>
+  </div>
+ 
+
 </template>

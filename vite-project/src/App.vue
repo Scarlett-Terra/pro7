@@ -1,6 +1,6 @@
 
 <script setup>
-import { provide, ref } from 'vue'
+import {  provide, ref } from 'vue'
 import ProductList from './components/ProductList.vue'
 import CartList from './components/CartList.vue'
 import Notification from './components/Notification.vue'
@@ -71,6 +71,8 @@ const removeToCart = (product) => {
   addNotification(`已移除商品：${product.title}`, 'secondary')
 }
 
+
+
 // 通知訊息
 const notifications = ref([])
 
@@ -90,6 +92,9 @@ const removeNotification = (id) => {
 
 provide('removeNotification', removeNotification)
 provide('notifications', notifications)
+
+
+
 </script>
 
 <template>
@@ -105,7 +110,7 @@ provide('notifications', notifications)
 
       <!-- 購物車區 -->
       <div class="col-md-4">
-        <h2 class="mb-3">購物車</h2>
+        <h2 class="mb-3">購物車</h2> 
         <div class="text-danger" v-if="carts.length === 0">還沒加入商品喔!</div>
         <CartList :carts="carts" @remove-to-cart="removeToCart" />
       </div>
