@@ -1,4 +1,5 @@
 <script setup>
+
 import { ref } from "vue";
 
 const drinks = ref([
@@ -62,38 +63,41 @@ const drinks = ref([
 </script>
 
 <template>
-  
-<table>
-  <thead>
-    <tr>
-      <th scope="col">品項</th>
-      <th scope="col">描述</th>
-      <th scope="col">價格</th>
-      <th scope="col">庫存</th>
-    </tr>
-  </thead>
-  
-<!--  for 迴圈 vue -->
-  <tbody>
-    <tr v-for="tea in drinks"
-        :key="tea.id">
-      <td> {{tea.item}} </td>
-      
-      <td><small> {{tea.desc}} </small></td>
-      
-      <td> {{tea.price}} 元</td>
-      
-      <td>
-        <button v-on:click="tea.counts--"  :disabled="tea.counts <=0">-</button> 
-        {{tea.counts}} 
-        <button v-on:click="tea.counts++" >+</button></td>
-    </tr>
-    
-   </tbody>
-    
-    
-</table>
 
+    <div class="middleToDo">
+
+      
+        <table >
+          <thead class="table">
+            <tr>
+              <th scope="col">品項</th>
+              <th scope="col">描述</th>
+              <th scope="col">價格</th>
+              <th scope="col">庫存</th>
+            </tr>
+          </thead>
+          
+        <!--  for 迴圈 vue -->
+          <tbody>
+            <tr v-for="tea in drinks"
+                :key="tea.id">
+              <td> {{tea.item}} </td>
+              
+              <td><small> {{tea.desc}} </small></td>
+              
+              <td> {{tea.price}} 元</td>
+              
+              <td>
+                <button v-on:click="tea.counts--"  :disabled="tea.counts <=0">-</button> 
+                {{tea.counts}} 
+                <button v-on:click="tea.counts++" >+</button></td>
+            </tr>
+            
+          </tbody>
+            
+            
+        </table>
+    </div>
 </template>
 
 <style>
@@ -103,4 +107,10 @@ const drinks = ref([
   td{
     padding: 5px 10px;
   }
+  
+  .middleToDo {
+  margin-top: 25px;
+  margin-left: 300px;
+}
+
 </style>

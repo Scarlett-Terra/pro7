@@ -1,6 +1,8 @@
 
 <!-- <HTML> -->
-<template>
+<template >
+
+<div class="middleToDo">
     <!--註冊功能 -->
     <h1>待辦</h1>
     <h2>註冊功能</h2>
@@ -39,11 +41,13 @@
     <div v-else>
         你還沒有登入
     </div>
-
+</div>
 </template>
 
 <!-- <JS> -->
 <script setup>
+
+
 
 import { onMounted,ref } from 'vue';
 
@@ -139,5 +143,10 @@ onMounted(async()=>{  // 需新增放到 ref 隔壁 ，cookies 設置到期假�
 
 <!-- <CSS> -->
 <style>
+
+.middleToDo {
+  margin-top: 25px;
+  margin-left: 300px;
+}
 
 </style>

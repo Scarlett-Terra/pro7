@@ -1,4 +1,6 @@
 <script setup>
+
+
 import { ref , computed, onMounted } from 'vue';  // 加總所有數字，需要computed
 
 import axios from 'axios'; // 帶入axios 需要
@@ -85,6 +87,8 @@ getData();
 <template>
 
 
+<div class="middleToDo">
+
     <input type="text" v-model="newName">
     {{newName}}
     <input type="text" v-model="newNumber">
@@ -94,7 +98,7 @@ getData();
     <!-- 小步驟測試 是否點擊正常 -->
 
     <table>
-        <thead>
+        <thead class="table">
             
             <tr >
                 <th>標題</th>
@@ -123,14 +127,24 @@ getData();
         </tbody>
     </table>
 
-    
     <h2>總價:{{ sum }}</h2>
 
+</div>
 </template>
 
 
 
 
 <style>
+
+.table{
+    border: 1px solid black;
+}
+
+.middleToDo {
+
+  margin-top: 25px;
+  margin-left: 300px;
+}
 
 </style>
