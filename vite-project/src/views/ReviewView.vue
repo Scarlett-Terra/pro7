@@ -34,14 +34,14 @@ const data = ref([
     {id:8,name: "抹茶拿鐵",price:60,quantity:1}
     ])
  
-// const sum = computed(()=>{
-//     console.log('sum',data.value)
-//     let tempSum = 0;
-//     data.value.forEach((item)=>{
-//         tempSum += item.price;
-//     })
-//     return tempSum;
-// })
+const sum = computed(()=>{
+    console.log('sum',data.value)
+    let tempSum = 0;
+    data.value.forEach((name)=>{
+        tempSum += name.price;
+    })
+    return tempSum;
+})
 
 const totalPrice = computed(() =>
   data.value.reduce((sum, item) => sum + item.price * item.quantity, 0)
@@ -131,8 +131,8 @@ getData();
         </tbody>
     </table>
 
-    <h1>總價:{{ totalPrice }}</h1>
-
+    <h1>Total總價:{{ totalPrice }}</h1>
+    <h1>Sum總價:{{ sum }}</h1>
 </div>
 </template>
 
