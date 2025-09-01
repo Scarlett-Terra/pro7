@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{c as o,o as t}from"./index-BPCW9pou.js";const c={};function r(n,s){return t(),o("h2",null," 最終 to do list ")}const l=e(c,[["render",r]]);export{l as default};
