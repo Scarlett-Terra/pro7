@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/pro7/',   // 要佈署上 GitHub 才能改回 /por7/ 
+  base:'/pro7/',   // 要佈署上 GitHub 才能改回 /por7/ 
   plugins: [
     vue(),
     vueDevTools(),
@@ -15,6 +15,10 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
+  },
+  build: {
+    outDir: 'dist', // 輸出到根目錄的 dist
+    emptyOutDir: true,
   },
   server: {
           host:"0.0.0.0",
