@@ -38,14 +38,11 @@ const sum = computed(()=>{
     console.log('sum',data.value)
     let tempSum = 0;
     data.value.forEach((name)=>{
-        tempSum += name.price;
+        tempSum += Number(name.price) ;
     })
     return tempSum;
 })
 
-const totalPrice = computed(() =>
-  data.value.reduce((sum, item) => sum + item.price * item.quantity, 0)
-)
 
 onMounted(()=>{
     setTimeout(()=>{
@@ -95,7 +92,7 @@ getData();
 
     <input type="text" v-model="newName">
     {{newName}}
-    <input type="text" v-model="newNumber">
+    <input type="number" v-model="newNumber">
     {{newNumber}}
 
     <button type="button" @click="addProduct"> 新增到資料集裡面 </button> 
@@ -121,7 +118,7 @@ getData();
                 <td > {{item.price}} </td> 
                 <!-- 調整價格 -->
                 <td>
-                    <input type="text" v-model="item.price">
+                    <input type="number" v-model="item.price">
                 </td>  
                 <td>
                     <!-- 刪除品項 -->
@@ -131,7 +128,7 @@ getData();
         </tbody>
     </table>
 
-    <h1>Total總價:{{ totalPrice }}</h1>
+    
     <h1>Sum總價:{{ sum }}</h1>
 </div>
 </template>
