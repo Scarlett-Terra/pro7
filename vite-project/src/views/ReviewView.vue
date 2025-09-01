@@ -33,7 +33,7 @@ const data = ref([
     {id:7,name: "芒果綠茶",price:55},
     {id:8,name: "抹茶拿鐵",price:60}
     ])
-
+ 
 const sum = computed(()=>{
     console.log('sum',data.value)
     let tempSum = 0;

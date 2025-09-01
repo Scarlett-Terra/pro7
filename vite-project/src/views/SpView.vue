@@ -7,7 +7,7 @@
 <template>
 
 
-    <CartView />
+    <CartView /> 
 
 </template>
 

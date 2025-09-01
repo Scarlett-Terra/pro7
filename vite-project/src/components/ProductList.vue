@@ -10,7 +10,7 @@
 
   const emit = defineEmits(['add-to-cart'])
   
-  //const handleAddCart = (product) =>{
+  //const handleAddCart = (product) =>{ 
   // emit('add-to-cart',product) 
   // showNotification(`商品 $(product.name) 已加入購物車`)
   // }; 

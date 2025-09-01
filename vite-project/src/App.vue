@@ -13,7 +13,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/Cart">進階元件購物車</RouterLink> |
         <RouterLink to="/FinalToDoList">終極作業</RouterLink> |
   
-     <RouterView />
+     <RouterView /> 
 
      
 </template>

@@ -2,7 +2,7 @@
 
 <template >
 
-    <h2> 最終 to do list </h2>
+    <h2> 最終 to do list </h2> 
 
 </template>
 

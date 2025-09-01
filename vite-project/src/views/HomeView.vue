@@ -94,7 +94,7 @@ const drinks = ref([
             </tr>
             
           </tbody>
-            
+             
             
         </table>
     </div>

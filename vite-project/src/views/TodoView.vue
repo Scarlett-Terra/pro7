@@ -22,7 +22,7 @@
     <input type="email" placeholder="輸入Email" v-model="signInField.email">      
     <input type="text"  placeholder="輸入密碼"   v-model="signInField.password">  
     
-    <!-- 登入不需要暱稱 -->
+    <!-- 登入不需要暱稱 --> 
     <br>
     {{ signInField }}
     <br>
