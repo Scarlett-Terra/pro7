@@ -127,7 +127,7 @@ getData();
         </tbody>
     </table>
 
-    <h2>總價:{{ sum }}</h2>
+    <h1>總價:{{ sum }}</h1>
 
 </div>
 </template>
