@@ -24,24 +24,28 @@ const deleteItem = (id) => {
 }
 
 const data = ref([
-    {id:1,name: "珍珠奶茶",price:50},
-    {id:2,name: "冬瓜檸檬",price:45},
-    {id:3,name: "翡翠檸檬",price:55},
-    {id:4,name: "四季春茶",price:45},
-    {id:5,name: "阿薩姆奶茶",price:50},
-    {id:6,name: "檸檬冰茶",price:45},
-    {id:7,name: "芒果綠茶",price:55},
-    {id:8,name: "抹茶拿鐵",price:60}
+    {id:1,name: "珍珠奶茶",price:50,quantity:1},
+    {id:2,name: "冬瓜檸檬",price:45,quantity:1},
+    {id:3,name: "翡翠檸檬",price:55,quantity:1},
+    {id:4,name: "四季春茶",price:45,quantity:1},
+    {id:5,name: "阿薩姆奶茶",price:50,quantity:1},
+    {id:6,name: "檸檬冰茶",price:45,quantity:1},
+    {id:7,name: "芒果綠茶",price:55,quantity:1},
+    {id:8,name: "抹茶拿鐵",price:60,quantity:1}
     ])
  
-const sum = computed(()=>{
-    console.log('sum',data.value)
-    let tempSum = 0;
-    data.value.forEach((item)=>{
-        tempSum += item.price;
-    })
-    return tempSum;
-})
+// const sum = computed(()=>{
+//     console.log('sum',data.value)
+//     let tempSum = 0;
+//     data.value.forEach((item)=>{
+//         tempSum += item.price;
+//     })
+//     return tempSum;
+// })
+
+const totalPrice = computed(() =>
+  data.value.reduce((sum, item) => sum + item.price * item.quantity, 0)
+)
 
 onMounted(()=>{
     setTimeout(()=>{
@@ -127,7 +131,7 @@ getData();
         </tbody>
     </table>
 
-    <h1>總價:{{ sum }}</h1>
+    <h1>總價:{{ totalPrice }}</h1>
 
 </div>
 </template>
