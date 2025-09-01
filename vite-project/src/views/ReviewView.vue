@@ -89,20 +89,22 @@ getData();
 
 
 <div class="middleToDo">
-
-    <input type="text" v-model="newName">
-    {{newName}}
-    <input type="number" v-model="newNumber">
-    {{newNumber}}
-
-    <button type="button" @click="addProduct"> 新增到資料集裡面 </button> 
+    
+    品項：
+    <input type="text" v-model="newName" placeholder="新增品項">
+    <!-- {{newName}} -->
+    金額：
+    <input type="number" v-model="newNumber" placeholder="請輸入金額">
+    <span>😁</span>
+    <button type="button" @click="addProduct" class="btn"> 新增 </button>
+    
     <!-- 小步驟測試 是否點擊正常 -->
-
+    <h4 class="total">目前總金額:{{ sum }}</h4>
     <table>
         <thead class="table">
             
             <tr >
-                <th>標題</th>
+                <th>品項名稱</th>
                 <th>價格</th>
                 <th>調整價格</th>
                 <th>刪除</th>
@@ -110,26 +112,25 @@ getData();
         </thead>
 
         <!-- body才能做 v-for 迴圈 -->
-        <tbody>
+        <tbody class="tbody">
             <tr v-for="item in data" :key="item.id" > <!-- 標題 -->
                 
-                <td > {{item.name}} </td>
+                <td class="name"> {{item.name}} </td>
                 <!-- 價格 -->  
-                <td > {{item.price}} </td> 
+                <td class="name"> {{item.price}} </td> 
                 <!-- 調整價格 -->
                 <td>
                     <input type="number" v-model="item.price">
                 </td>  
                 <td>
                     <!-- 刪除品項 -->
-                    <button type="button" @click="deleteItem(item.id)">刪除品項</button>
+                    <button type="button" @click="deleteItem(item.id)" class="btn">刪除品項</button>
                 </td> 
             </tr>
         </tbody>
     </table>
-
     
-    <h1>Sum總價:{{ sum }}</h1>
+    
 </div>
 </template>
 
@@ -139,7 +140,13 @@ getData();
 <style>
 
 .table{
-    border: 1px solid black;
+    
+    text-align: center;
+    background-color: rgb(245, 215, 241);
+    border-radius: 2cqi;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 17px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .middleToDo {
@@ -147,5 +154,25 @@ getData();
   margin-top: 25px;
   margin-left: 300px;
 }
-
+.tbody{
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+}
+.name{
+    border: 1px solid black;
+    text-align: center;
+}
+.total{
+    color: rgb(189, 9, 9);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    
+}
+.btn{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+}
 </style>

@@ -88,9 +88,9 @@ const drinks = ref([
               <td> {{tea.price}} 元</td>
               
               <td>
-                <button v-on:click="tea.counts--"  :disabled="tea.counts <=0">-</button> 
+                <button v-on:click="tea.counts--"  :disabled="tea.counts <=0" class="btn">-</button> 
                 {{tea.counts}} 
-                <button v-on:click="tea.counts++" >+</button></td>
+                <button v-on:click="tea.counts++" class="btn">+</button></td>
             </tr>
             
           </tbody>
@@ -112,5 +112,11 @@ const drinks = ref([
   margin-top: 25px;
   margin-left: 300px;
 }
-
+.btn{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+}
 </style>

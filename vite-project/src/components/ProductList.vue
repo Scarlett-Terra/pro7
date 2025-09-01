@@ -28,7 +28,9 @@
       <div class="card-body">
         <h5 class="card-title">{{ product.title }}</h5>    <!-- 產品名稱 > {{ product.title }} < -->
         <p class="card-text">{{ product.content }}</p>     <!-- 產品描述 > {{ product.content }} < -->
+        <br>
         <p class="fw-bold text-primary">$ {{ product.price }}</p> <!-- 產品價錢 > $ {{ product.price }} < -->
+        <br>
         <button class="btn btn-success w-100" @click="emit('add-to-cart', product)">
           加入購物車
         </button>

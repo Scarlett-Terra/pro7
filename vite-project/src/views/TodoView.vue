@@ -4,42 +4,54 @@
 
 <div class="middleToDo">
     <!--註冊功能 -->
-    <h1>待辦</h1>
-    <h2>註冊功能</h2>
-    <input type="email" placeholder="輸入Email" v-model="signupField.email">      <!-- email ，確定能雙向綁定複寫後，後續才能推往後端伺服器-->
-    <input type="text"  placeholder="輸入密碼"   v-model="signupField.password">  <!-- password-->
-    <input type="text"  placeholder="輸入暱稱"   v-model="signupField.nickname">  <!-- 文字-->
-    <br>
-    {{ signupField }}
-    <br>
-    <button type="button" v-on:click="signup">註冊</button>  <!-- 綁定 @click 註冊的行為 -->
-    <br>
-    UID號碼：{{ signupRes }}   <!-- 印出 自己的res.data.uid * 這串英文代碼代表 : 每個人的金鑰匙 獨一無二-->
-
+    
+    <h2 class="keyWord">註冊功能</h2>
+    <div class="box">
+        <span>註冊郵箱：</span>
+        <input class="input" type="email" placeholder="輸入Email" v-model="signupField.email">      <!-- email ，確定能雙向綁定複寫後，後續才能推往後端伺服器-->
+        <br>
+        <span>註冊密碼：</span><input class="input" type="text"  placeholder="輸入密碼"   v-model="signupField.password">  <!-- password-->
+        <br>
+        <span>您的暱稱：</span><input class="input" type="text"  placeholder="輸入暱稱"   v-model="signupField.nickname">  <!-- 文字-->
+        <br>
+    </div>
+    <!-- {{ signupField }} -->
+    <button type="button" v-on:click="signup" class="btn">註冊</button>  <!-- 綁定 @click 註冊的行為 -->
+    
+    UID號：{{ signupRes }}   <!-- 印出 自己的res.data.uid * 這串英文代碼代表 : 每個人的金鑰匙 獨一無二-->
+    <br><br>
     <!--登入功能 -- ingn up 改 全改In> -->
-    
-    <h2>登入功能</h2>
-    <input type="email" placeholder="輸入Email" v-model="signInField.email">      
-    <input type="text"  placeholder="輸入密碼"   v-model="signInField.password">  
-    
+    <div class="box">
+        <h2 class="keyWord">登入功能</h2>
+        <span>登入郵箱：</span><input class="input" type="email" placeholder="輸入Email" v-model="signInField.email">      
+        <br>
+        <span>登入密碼：</span><input class="input" type="text"  placeholder="輸入密碼"   v-model="signInField.password">  
+    </div>
     <!-- 登入不需要暱稱 --> 
-    <br>
-    {{ signInField }}
-    <br>
-    <button type="button" v-on:click="signIn">登入</button>  
-    <br>
-    token號碼：{{ signInRes }}   <!-- 印出 自己的res.data.uid * 這串英文代碼代表 : 每個人的金鑰匙 獨一無二-->
+    
+    <!-- {{ signInField }} -->
+    
+    <button type="button" v-on:click="signIn" class="btn">登入</button>  
+    
+    token號：{{ signInRes }}   <!-- 印出 自己的res.data.uid * 這串英文代碼代表 : 每個人的金鑰匙 獨一無二-->
 
     <!-- 驗證  --> 
-    <h2>驗證功能</h2>
+    <br><br>
+    <h2 class="keyWord">驗證功能</h2>
+    
     <!-- 如果再登入狀態就顯示p 標籤內容，如果沒有登入就顯示:你還沒登入  --> 
-     {{ user }}  <!-- 反查回去看給什麼值(如果有錯) --> 
-    <div v-if="user.uid">  
-        <p>UID : {{ user.uid }}</p>
-        <p>NickName:{{ user.nickname }}</p>
-    </div>
-    <div v-else>
-        你還沒有登入
+    <div class="user"> {{ user }}  </div>
+     <!-- 反查回去看給什麼值(如果有錯)  -->
+    <div class="box">
+        <div v-if="user.uid"> 
+            <p>最後狀態:</p> 
+            <p>您的UID號 : {{ user.uid }}</p>
+            <p>您的暱稱為：{{ user.nickname }}</p>
+            
+        </div>
+        <div v-else>
+            <p>注意!! 你還沒有成功登入</p>
+        </div>
     </div>
 </div>
 </template>
@@ -149,4 +161,27 @@ onMounted(async()=>{  // 需新增放到 ref 隔壁 ，cookies 設置到期假�
   margin-left: 300px;
 }
 
+.keyWord{
+    color: rgb(41, 146, 55);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+}
+.box{
+    color: rgb(20, 55, 253);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+.btn{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+}
+.user{
+    color: rgb(255, 254, 253);
+}
+.input {
+    font-size: 15px;
+}
 </style>
