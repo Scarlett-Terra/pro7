@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base:'/pro7/',   // 要佈署上 GitHub 才能改回 /por7/ 
+  base:'/hexSchool-Vue/',   // 要佈署上 GitHub 才能改回 /名稱/ 
   plugins: [
     vue(),
     vueDevTools(),
